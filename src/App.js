@@ -11,7 +11,7 @@ import ItemForm from "./components/items/ItemForm";
 
 function App() {
   const [items, setItems] = useState([]);
-
+  
   const onAddItemHandler = (enteredItems) => {
     setItems((prevItems) => {
       return [enteredItems, ...prevItems];
@@ -24,12 +24,12 @@ function App() {
       return updatedItems;
     });
   };
-
+  
   return (
     <Card className={classes.container}>
       <Header items={items} />
-      <Expense items={items} />
-      <ItemList onDeleteItem={deleteItemHandler} items={items} />
+      <Expense items={items}  />
+      
       <Section>Agrega una transacción</Section>
       <ItemForm onAddItem={onAddItemHandler} />
       <Section>Historial</Section>
@@ -38,6 +38,7 @@ function App() {
           No has hecho ninguna transacción. ¡Ingresa alguna!
         </p>
       )}
+      <ItemList onDeleteItem={deleteItemHandler} items={items} />
       
     </Card>
   );

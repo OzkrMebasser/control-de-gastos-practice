@@ -14,6 +14,7 @@ const ItemList = (props) => {
           title={item.title}
           income={item.income}
           amount={item.amount}
+          
         />
       ))}
     </ul>

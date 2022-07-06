@@ -4,11 +4,14 @@ import classes from "./ItemForm.module.css";
 
 import Card from "../UI/Card";
 
+ 
+
 // A form for entering the transactions
 const ItemForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [isIncome, setIsIncome] = useState("");
+ 
 
   const titleHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -17,32 +20,38 @@ const ItemForm = (props) => {
   const amountHandler = (event) => {
     setEnteredAmount(event.target.value);
   };
-
+  
   const submitHandler = (event) => {
     event.preventDefault();
 
     if (
       enteredTitle.trim() !== "" &&
       enteredAmount.trim() !== "" &&
-      isIncome !== ""
+      isIncome !== "" 
+      
+      
     ) {
       const items = {
         id: Math.random().toString(),
         title: enteredTitle,
         amount: +enteredAmount,
-        income: isIncome,
+        income: isIncome
+        
       };
 
       setEnteredTitle("");
       setEnteredAmount("");
       setIsIncome("");
+      
 
       props.onAddItem(items);
     }
   };
 
+  
   return (
     <Card className={classes.wrapper}>
+      
       <form onSubmit={submitHandler}>
         <label htmlFor="title">Transacción</label>
         <input
@@ -84,6 +93,7 @@ const ItemForm = (props) => {
         </div>
         <button>Agregar transacción</button>
       </form>
+      
     </Card>
   );
 };
