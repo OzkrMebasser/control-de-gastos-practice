@@ -41,6 +41,8 @@ const Item = (props) => {
     {date.toString()}</div> */}
     
       <Card className={`${props.income ? classes.income : classes.expense}`}>
+      <div className={classes.title}><DatePicker selected={startDate} onChange={(date:Date) => setStartDate(Date)} showTimeInput
+      customTimeInput={<ExampleCustomTimeInput />} /></div>
       <div className={classes.title}>{props.title}</div>
       
       
@@ -56,8 +58,7 @@ const Item = (props) => {
           </button>
         )}
       </Card>
-      <div className={classes.title}><DatePicker selected={startDate} onChange={(date:Date) => setStartDate(Date)} showTimeInput
-      customTimeInput={<ExampleCustomTimeInput />} /></div>
+      
 
     </li>
   );
